@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/background">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/favorite_twitter_searches"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/primary_dark"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Search Query Input -->
+    <EditText
+        android:id="@+id/searchQueryEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_query_hint"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:autofillHints="username"
+        android:background="@drawable/edittext_background"
+        android:padding="16dp"
+        android:layout_marginBottom="16dp"
+        android:textColor="@color/text_color"
+        android:textColorHint="@color/primary"
+        android:maxWidth="400dp"
+        android:layout_gravity="center_horizontal" />
+
+    <!-- Save Button -->
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/save_button_text"
+        android:backgroundTint="@color/primary"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:minHeight="48dp"
+        android:layout_marginBottom="24dp"
+        android:layout_gravity="center_horizontal"
+        android:paddingHorizontal="32dp" />
+
+    <!-- Tagged Searches Title -->
+    <TextView
+        android:id="@+id/taggedSearchesTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tagged_searches"
+        android:textSize="18sp"
+        android:textColor="@color/primary_dark"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Tags Container -->
+    <LinearLayout
+        android:id="@+id/tagsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp"
+        android:background="@drawable/tags_container_background">
+        <!-- Tags will be added here programmatically -->
+    </LinearLayout>
+
+</LinearLayout>

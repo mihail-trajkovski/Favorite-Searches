@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Favorite Searches</string>
+    <string name="favorite_twitter_searches">Favorite Twitter Searches</string>
+    <string name="enter_query_hint">Enter Twitter search query here</string>
+    <string name="save_button_text">Save</string>
+    <string name="tagged_searches">Tagged Searches</string>
+</resources>
