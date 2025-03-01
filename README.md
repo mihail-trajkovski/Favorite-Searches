@@ -9,4 +9,4 @@ A simple Android app for saving favorite Twitter searches.
 ## Demo
 Here’s a screen recording of the app in action:
 
-<video src="favoriteSearches.webm" controls width="100%"></video>
+https://github.com/mihail-trajkovski/FavoriteSearches/raw/master/favoriteSearches.mp4
