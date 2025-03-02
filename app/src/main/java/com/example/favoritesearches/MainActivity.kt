@@ -3,10 +3,14 @@ package com.example.favoritesearches
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 
 class MainActivity : ComponentActivity() {
@@ -20,22 +24,23 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun FavoriteSearchesApp() {
-    var query by remember { mutableStateOf("") } // State for the search query input
-    val tags = remember { mutableStateListOf<String>() } // State for the list of tags
+    var query by remember { mutableStateOf("") }
+    val tags = remember { mutableStateListOf<String>() }
 
     Column(
         modifier = Modifier
             .fillMaxSize()
             .padding(16.dp)
+            .background(Color(0xFFF5F5F5))
     ) {
-        // Title
+
         Text(
             text = "Favorite Twitter Searches",
             style = MaterialTheme.typography.headlineMedium,
+            color = Color(0xFF00796B),
             modifier = Modifier.padding(bottom = 16.dp)
         )
 
-        // Search Query Input
         OutlinedTextField(
             value = query,
             onValueChange = { query = it },
@@ -43,35 +48,66 @@ fun FavoriteSearchesApp() {
             modifier = Modifier.fillMaxWidth()
         )
 
-        // Save Button
         Button(
             onClick = {
                 if (query.isNotEmpty()) {
-                    tags.add(query) // Add the query to the list of tags
-                    query = "" // Clear the input field
+                    tags.add(query)
+                    query = ""
                 }
             },
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color(0xFF00796B)
+            ),
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(top = 16.dp)
         ) {
-            Text("Save")
+            Text("Save", color = Color.White)
         }
 
-        // Tagged Searches Title
+        Button(
+            onClick = {
+                tags.clear()
+            },
+            colors = ButtonDefaults.buttonColors(
+                containerColor = Color(0xFF00796B)
+            ),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 8.dp)
+        ) {
+            Text("Clear Tags", color = Color.White)
+        }
+
         Text(
             text = "Tagged Searches",
             style = MaterialTheme.typography.titleMedium,
+            color = Color(0xFF00796B),
             modifier = Modifier.padding(top = 24.dp, bottom = 16.dp)
         )
 
-        // List of Tags
         Column {
             tags.forEach { tag ->
-                Text(
-                    text = tag,
-                    modifier = Modifier.padding(vertical = 4.dp)
-                )
+                Box(
+                    modifier = Modifier
+                        .padding(vertical = 4.dp)
+                        .border(
+                            width = 1.dp,
+                            color = Color(0xFF00796B),
+                            shape = RoundedCornerShape(8.dp)
+                        )
+                        .background(
+                            color = Color(0x2000796B),
+                            shape = RoundedCornerShape(8.dp)
+                        )
+                        .padding(16.dp)
+                ) {
+                    Text(
+                        text = tag,
+                        color = Color(0xFF00796B),
+                        modifier = Modifier.padding(8.dp)
+                    )
+                }
             }
         }
     }
